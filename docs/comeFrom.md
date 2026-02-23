@@ -9,3 +9,5 @@ DesktopPetByAi 是一款创新的智能桌面宠物应用，它不仅提供了�
    1. 她能够与你进行互动,你可以给她喂食,和她聊天
    2. 她集成了一些工具，这使得她具有感知外界的能力
 
+## 评论
+<Utterances repo="cjz-wr/DesktopPetByAi-Document" />

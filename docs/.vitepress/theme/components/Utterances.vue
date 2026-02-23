@@ -22,7 +22,7 @@ const props = defineProps({
   },
   theme: {
     type: String,
-    default: 'github-light'
+    default: 'github-dark'
   }
 })
 

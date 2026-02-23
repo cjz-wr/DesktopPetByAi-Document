@@ -20,7 +20,6 @@ export default defineConfig({
           { text: 'DesktopPetByAi使用', link: '/start' },
           { text:'探索更多功能',link:'/more'},
           { text: 'DesktopPetByAi开发', link: '/develop' },
-          { text: 'Runtime API Examples', link: '/api-examples' }
         ]
       }
     ],
@@ -29,16 +28,4 @@ export default defineConfig({
       { icon: 'github', link: 'https://github.com/cjz-wr/DesktopPetByAi' }
     ]
   },
-  // 添加自定义head标签
-  // head: [
-  //   ['script', {
-  //     src: 'https://utteranc.es/client.js',
-  //     repo: 'cjz-wr/DesktopPetByAi-Document',
-  //     'issue-term': 'pathname',
-  //     label: 'Comment',
-  //     theme: 'github-light',
-  //     crossorigin: 'anonymous',
-  //     async: 'true'
-  //   }]
-  // ]
 })
