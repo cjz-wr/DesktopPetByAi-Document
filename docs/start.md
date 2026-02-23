@@ -5,8 +5,9 @@
 - 1.通过访问[DesktopPetByAi](https://cjz-wr.github.io/DesktopPetByAiWeb/)来获取最新的下载链接或者访问[Github](https://github.com/cjz-wr/DesktopPetByAi/releases)来获取最新的安装包
 > [!TIP]
 >建议通过*后面*一个来进行下载(如果你有电脑基础的话),因为后面一个链接通常更新比前面的要快一点
+
 >[!WARNING]
->如果你是非winows用户的话,那么你只能使用运行源代码的方式来运行我们的程序了
+>如果你是非windows用户的话,那么你只能使用运行源代码的方式来运行我们的程序了
 
 ### 安装
 
