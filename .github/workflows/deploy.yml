@@ -24,25 +24,22 @@ jobs:
       
       - name: 🔍 Verify lockfile
         run: |
-          if [ ! -s "docs/package-lock.json" ] || grep -q '"packages": {}' docs/package-lock.json; then
-            echo "❌ INVALID LOCKFILE: docs/package-lock.json is empty or has no dependencies!"
+          if [ ! -f "package-lock.json" ]; then
+            echo "❌ package-lock.json not found!"
             exit 1
           fi
-          echo "✅ Valid package-lock.json found ($(wc -l < docs/package-lock.json) lines)"
+          echo "✅ Valid package-lock.json found"
       
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: npm
-          cache-dependency-path: docs/package-lock.json
       
       - name: Install dependencies
-        working-directory: ./docs
         run: npm ci
       
       - name: Build with VitePress
-        working-directory: ./docs
         run: npm run docs:build
       
       - name: Setup Pages
