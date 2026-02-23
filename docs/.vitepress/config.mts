@@ -35,7 +35,7 @@ export default defineConfig({
       src: 'https://utteranc.es/client.js',
       repo: 'cjz-wr/DesktopPetByAi-Document',
       'issue-term': 'pathname',
-      label: 'comment',
+      label: 'Comment',
       theme: 'github-light',
       crossorigin: 'anonymous',
       async: 'true'

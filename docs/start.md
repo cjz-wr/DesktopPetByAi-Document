@@ -58,11 +58,11 @@
 >记得重启你的程序
 
 
-<script src="https://utteranc.es/client.js"
+<!-- <script src="https://utteranc.es/client.js"
         repo="cjz-wr/DesktopPetByAi-Document"
         issue-term="pathname"
         label="comment"
         theme="github-light"
         crossorigin="anonymous"
         async>
-</script>
+</script> -->
