@@ -57,15 +57,17 @@
 >[!WARNING]
 >记得重启你的程序
 
+## 评论
 
-<!-- <script src="https://utteranc.es/client.js"
-        repo="cjz-wr/DesktopPetByAi-Document"
+<div id="utterances-container"></div>
+<script src="https://utteranc.es/client.js"
+        repo="cjz-wr/DesktopByAi-Document"
         issue-term="pathname"
-        label="comment"
+        label="Comment"
         theme="github-light"
         crossorigin="anonymous"
         async>
-</script> -->
+</script>
 <!-- <script src="https://giscus.app/client.js"
         data-repo="cjz-wr/DesktopByAi-Document"
         data-repo-id="R_kgDORWd6pA"
@@ -81,4 +83,4 @@
         crossorigin="anonymous"
         async>
 </script> -->
-<Utterances repo="cjz-wr/DesktopPetByAi-Document" />
+<!-- <Utterances repo="cjz-wr/DesktopByAi-Document" /> -->

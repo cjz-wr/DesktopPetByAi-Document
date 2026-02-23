@@ -30,15 +30,15 @@ export default defineConfig({
     ]
   },
   // 添加自定义head标签
-  // head: [
-  //   ['script', {
-  //     src: 'https://utteranc.es/client.js',
-  //     repo: 'cjz-wr/DesktopPetByAi-Document',
-  //     'issue-term': 'pathname',
-  //     label: 'Comment',
-  //     theme: 'github-light',
-  //     crossorigin: 'anonymous',
-  //     async: 'true'
-  //   }]
-  // ]
+  head: [
+    ['script', {
+      src: 'https://utteranc.es/client.js',
+      repo: 'cjz-wr/DesktopPetByAi-Document',
+      'issue-term': 'pathname',
+      label: 'Comment',
+      theme: 'github-light',
+      crossorigin: 'anonymous',
+      async: 'true'
+    }]
+  ]
 })
