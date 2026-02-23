@@ -59,28 +59,5 @@
 
 ## 评论
 
-<div id="utterances-container"></div>
-<script src="https://utteranc.es/client.js"
-        repo="cjz-wr/DesktopByAi-Document"
-        issue-term="pathname"
-        label="Comment"
-        theme="github-light"
-        crossorigin="anonymous"
-        async>
-</script>
-<!-- <script src="https://giscus.app/client.js"
-        data-repo="cjz-wr/DesktopByAi-Document"
-        data-repo-id="R_kgDORWd6pA"
-        data-category="Comment"
-        data-category-id="1"
-        data-mapping="title"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="bottom"
-        data-theme="preferred_color_scheme"
-        data-lang="zh-CN"
-        crossorigin="anonymous"
-        async>
-</script> -->
-<!-- <Utterances repo="cjz-wr/DesktopByAi-Document" /> -->
+
+<Utterances repo="cjz-wr/DesktopByAi-Document" />
