@@ -1,3 +1,4 @@
+# .github/workflows/deploy.yml
 name: Deploy VitePress site to Pages
 
 on:
@@ -20,43 +21,33 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
-      # 验证锁文件存在（调试用，成功后可移除）
-      - name: 🔍 Verify package-lock.json exists
+      
+      - name: 🔍 Verify lockfile
         run: |
-          if [ ! -f "docs/package-lock.json" ]; then
-            echo "❌ CRITICAL ERROR: docs/package-lock.json NOT FOUND!"
+          if [ ! -s "docs/package-lock.json" ] || grep -q '"packages": {}' docs/package-lock.json; then
+            echo "❌ INVALID LOCKFILE: docs/package-lock.json is empty or has no dependencies!"
             exit 1
           fi
-          echo "✅ Found docs/package-lock.json (size: $(stat -c%s docs/package-lock.json) bytes)"
-
+          echo "✅ Valid package-lock.json found ($(wc -l < docs/package-lock.json) lines)"
+      
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: npm
-          cache-dependency-path: docs/package-lock.json   # 确保路径正确
-
+          cache-dependency-path: docs/package-lock.json
+      
       - name: Install dependencies
         working-directory: ./docs
         run: npm ci
-
+      
       - name: Build with VitePress
         working-directory: ./docs
         run: npm run docs:build
-
-      # 验证构建产物（调试用）
-      - name: 🔍 Verify build output
-        run: |
-          if [ ! -f "docs/.vitepress/dist/index.html" ]; then
-            echo "❌ Build failed: index.html not found!"
-            exit 1
-          fi
-          echo "✅ Build successful! Found index.html"
-
+      
       - name: Setup Pages
         uses: actions/configure-pages@v4
-
+      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
