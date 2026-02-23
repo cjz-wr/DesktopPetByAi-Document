@@ -57,7 +57,6 @@
 >[!WARNING]
 >记得重启你的程序
 
-<Utterances repo="cjz-wr/DesktopPetByAi-Document" label="Comment" />
 
 <script src="https://utteranc.es/client.js"
         repo="cjz-wr/DesktopPetByAi-Document"
