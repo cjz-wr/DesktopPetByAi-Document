@@ -20,86 +20,32 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-          cache: yarn  # ✅ 启用 Yarn 缓存
-          cache-dependency-path: docs/yarn.lock  # ✅ 指向 yarn.lock
-      
-      - name: Install dependencies
-        working-directory: ./docs
-        run: yarn install --frozen-lockfile  # ✅ Yarn 命令
-      
-      - name: Build with VitePress
-        working-directory: ./docs
-        run: yarn docs:build  # ✅ 使用 yarn 而非 npm
-      
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./docs/.vitepress/dist
 
-  deploy:
-    environment:
-      name: github-pages# .github/workflows/deploy.yml
-name: Deploy VitePress site to Pages
-
-on:
-  push:
-    branches: [main]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: true
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      # ✅ 第一步：检出代码（必须最先执行！）
-      - name: Checkout
-        uses: actions/checkout@v4
-      
-      # ✅ 第二步：验证关键文件是否存在（调试用，成功后可保留）
+      # 验证锁文件存在（调试用，成功后可移除）
       - name: 🔍 Verify package-lock.json exists
         run: |
           if [ ! -f "docs/package-lock.json" ]; then
             echo "❌ CRITICAL ERROR: docs/package-lock.json NOT FOUND!"
-            echo "Check your repository: https://github.com/cjz-wr/DesktopByAi-Document/tree/main/docs"
             exit 1
           fi
           echo "✅ Found docs/package-lock.json (size: $(stat -c%s docs/package-lock.json) bytes)"
-      
-      # ✅ 第三步：设置 Node.js（此时代码已存在，缓存路径有效）
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 18
-          cache: npm  # ✅ 关键：使用 npm 缓存
-          cache-dependency-path: docs/package-lock.json  # ✅ 指向正确文件
-      
-      # ✅ 第四步：安装依赖（在 docs 目录）
+          cache: npm
+          cache-dependency-path: docs/package-lock.json   # 确保路径正确
+
       - name: Install dependencies
         working-directory: ./docs
-        run: npm ci  # ✅ 使用 npm ci（依赖 package-lock.json）
-      
-      # ✅ 第五步：构建项目
+        run: npm ci
+
       - name: Build with VitePress
         working-directory: ./docs
         run: npm run docs:build
-      
-      # ✅ 第六步：验证构建产物
+
+      # 验证构建产物（调试用）
       - name: 🔍 Verify build output
         run: |
           if [ ! -f "docs/.vitepress/dist/index.html" ]; then
@@ -107,12 +53,10 @@ jobs:
             exit 1
           fi
           echo "✅ Build successful! Found index.html"
-      
-      # ✅ 第七步：配置 Pages
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
-      
-      # ✅ 第八步：上传构建产物
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -121,13 +65,6 @@ jobs:
   deploy:
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
       url: ${{ steps.deployment.outputs.page_url }}
     needs: build
     runs-on: ubuntu-latest
