@@ -28,5 +28,17 @@ export default defineConfig({
     socialLinks: [
       { icon: 'github', link: 'https://github.com/cjz-wr/DesktopPetByAi' }
     ]
-  }
+  },
+  // 添加自定义head标签
+  head: [
+    ['script', {
+      src: 'https://utteranc.es/client.js',
+      repo: 'cjz-wr/DesktopPetByAi-Document',
+      'issue-term': 'pathname',
+      label: 'comment',
+      theme: 'github-light',
+      crossorigin: 'anonymous',
+      async: 'true'
+    }]
+  ]
 })
