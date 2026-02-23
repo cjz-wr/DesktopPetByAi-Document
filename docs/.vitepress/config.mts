@@ -2,7 +2,7 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
-  base: '/DesktopByAi-Document/',
+  base: '/DesktopPetByAi-Document/',
   title: "DesktopPetByAi",
   description: "DesktopPetByAi Documentation",
   themeConfig: {
