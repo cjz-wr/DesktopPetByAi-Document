@@ -12,29 +12,37 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: false    # 修正：冒号后加空格
+  cancel-in-progress: true
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v4
+      
       - name: Setup Node
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v4
         with:
-          node-version: 22      # 修正：冒号后加空格
-          cache: npm
+          node-version: 18
+          cache: yarn  # ✅ 启用 Yarn 缓存
+          cache-dependency-path: docs/yarn.lock  # ✅ 指向 yarn.lock
+      
+      - name: Install dependencies
+        working-directory: ./docs
+        run: yarn install --frozen-lockfile  # ✅ Yarn 命令
+      
+      - name: Build with VitePress
+        working-directory: ./docs
+        run: yarn docs:build  # ✅ 使用 yarn 而非 npm
+      
       - name: Setup Pages
         uses: actions/configure-pages@v4
-      - name: Install dependencies
-        run: npm ci
-      - name: Build with VitePress
-        run: npm run docs:build
+      
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: docs/.vitepress/dist
+          path: ./docs/.vitepress/dist
 
   deploy:
     environment:
@@ -44,5 +52,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to GitHub Pages
-        id: deployment          # 新增 id
+        id: deployment
         uses: actions/deploy-pages@v4
