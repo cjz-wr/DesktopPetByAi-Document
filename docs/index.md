@@ -4,7 +4,7 @@ layout: home
 
 hero:
   name: "DesktopPetByAi"
-  text: "使用&开发文档"
+  text: "DesktopPetByAi 使用&开发文档"
   tagline: 一个智能桌面宠物
   actions:
     - theme: brand
@@ -16,3 +16,4 @@ hero:
 
 
 ---
+

@@ -4,9 +4,7 @@ node_modules/
 yarn.lock
 pnpm-lock.yaml
 
-# Build output
-docs/.vitepress/dist/
-docs/.vitepress/cache/
+
 
 # Environment variables
 .env
