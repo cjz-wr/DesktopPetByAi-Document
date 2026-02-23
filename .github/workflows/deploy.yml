@@ -1,47 +1,58 @@
 name: Deploy VitePress site to Pages
 
 on:
-push:
-branches: [main]
-workflow_dispatch:
+  push:
+    branches: [main]
+  workflow_dispatch:
 
 permissions:
-contents: read
-pages: write
-id-token: write
+  contents: read
+  pages: write
+  id-token: write
 
 concurrency:
-group: pages
- ancel-in-progress:false
+  group: pages
+  cancel-in-progress: true
 
 jobs:
-build:
-runs-on: ubuntu-latest
-steps:
--name: Checkout
-uses: actions/checkout@v5
--name: Setup Node
-uses: actions/setup-node@v6
-with:
-node-version:26
-cache: npm
--name: Setup Pages
-uses: actions/configure-pages@v4
--name: Install dependencies
-run: npm ci
--name: Build with VitePress
-run: npm run docs:build
--name: Upload artifact
-uses: actions/upload-pages-artifact@v3
-with:
-path: docs/.vitepress/dist
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          # ⚠️ 移除 cache: npm（根目录无 lock 会导致缓存失效）
+      
+      - name: Install dependencies
+        working-directory: ./docs  # ✅ 关键：指定工作目录
+        run: npm ci
+      
+      - name: Build with VitePress
+        working-directory: ./docs  # ✅ 关键：指定工作目录
+        run: npm run docs:build
+      
+      - name: Verify build output
+        run: ls -la docs/.vitepress/dist/index.html
+      
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+      
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./docs/.vitepress/dist  # ✅ 相对于根目录的路径
 
-deploy:
-environment:
-name: github-pages
-url: ${{ steps.deployment.outputs.page_url }}
-needs: build
-runs-on: ubuntu-latest
-steps:
--name: Deploy to GitHub Pages
-uses: actions/deploy-pages@v4
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
