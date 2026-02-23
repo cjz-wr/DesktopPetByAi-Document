@@ -56,3 +56,13 @@
 - 7.<span style="color: red;">然后点击保存接口配置</span>(这是重要的)
 >[!WARNING]
 >记得重启你的程序
+
+
+<script src="https://utteranc.es/client.js"
+        repo="cjz-wr/DesktopPetByAi-Document"
+        issue-term="title"
+        label="comment"
+        theme="github-dark"
+        crossorigin="anonymous"
+        async>
+</script>
