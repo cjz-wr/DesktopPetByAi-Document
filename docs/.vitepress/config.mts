@@ -20,6 +20,8 @@ export default defineConfig({
           { text: 'DesktopPetByAi使用', link: '/start' },
           { text:'探索更多功能',link:'/more'},
           { text: 'DesktopPetByAi开发', link: '/develop' },
+          { text: 'skill开发', link: '/skill' },
+          { text: 'py脚本开发', link: '/py' }
         ]
       }
     ],
