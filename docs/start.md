@@ -60,4 +60,4 @@
 ## 评论
 
 
-<Utterances repo="cjz-wr/DesktopByAi-Document" />
+<Utterances repo="cjz-wr/DesktopPetByAi-Document" />
