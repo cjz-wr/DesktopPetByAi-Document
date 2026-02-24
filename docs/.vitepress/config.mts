@@ -32,7 +32,7 @@ export default defineConfig({
           { text:'探索更多功能',link:'/more'},
           { text: 'DesktopPetByAi开发', link: '/develop' },
           { text: 'skill开发', link: '/skills' },
-          { text: 'py脚本开发', link: '/py' },
+          { text: 'py脚本(插件)开发', link: '/py' },
           
         ]
       }
