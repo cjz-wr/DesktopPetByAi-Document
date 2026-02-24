@@ -7,6 +7,10 @@ export default defineConfig({
   description: "DesktopPetByAi Documentation",
   lastUpdated: true,
   themeConfig: {
+    search: {
+      provider: 'local'
+    },
+    logo: "/ico/logo.png",
     editLink: {
       pattern: 'https://github.com/cjz-wr/DesktopPetByAi-Document/edit/main/docs/:path',
       // 可选：自定义链接显示的文本，默认是 "Edit this page"

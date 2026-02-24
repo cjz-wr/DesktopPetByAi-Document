@@ -14,6 +14,15 @@ hero:
       text: 快速开始
       link: /start
 
-
+features:
+  - icon: ⚡
+    title: 智能桌面宠物
+    details: 一个智能桌面宠物
+  - icon: 🛠️
+    title: 软件开发文档
+    details: 详细开发文档
+  - icon: 📦
+    title: ai
+    details: 集成ai接口
 ---
 
