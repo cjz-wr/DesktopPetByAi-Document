@@ -17,11 +17,13 @@ export default defineConfig({
         text: 'DesktopPetByAi使用&开发',
         items: [
           { text: 'DesktopPetByAi', link: '/comeFrom' },
+          { text: 'DesktopPetByAi的配置文件', link: '/other' },
           { text: 'DesktopPetByAi使用', link: '/start' },
           { text:'探索更多功能',link:'/more'},
           { text: 'DesktopPetByAi开发', link: '/develop' },
-          { text: 'skill开发', link: '/skill' },
-          { text: 'py脚本开发', link: '/py' }
+          { text: 'skill开发', link: '/skills' },
+          { text: 'py脚本开发', link: '/py' },
+          
         ]
       }
     ],

@@ -33,7 +33,7 @@
 >如果你需要自定义食物的话，目前需要你的电脑中具备python环境，因为目前我们并未提供 <code>exe</code> 格式的编辑器
 - 1.在[DesktopPetByAi](https://github.com/cjz-wr/DesktopPetByAi)的根目录下找到 <code>food_editor.py</code> 文件下载它
 - 2.运行这个代码文件，如图:<img src="./image/image14.png" alt="img" width="500">
-- 如何就可以编辑食物了,关于食物的图片,你需要将其放到 软件安装的根目录下的 <code>food</code> 文件夹里面才会加载出来
+- 然后就可以编辑食物了,关于食物的图片,你需要将其放到 软件安装的根目录下的 <code>outputfood</code> 文件夹里面才会加载出来
 - 3.待文件加载出来后编辑食物信息即可
 
 ## 插件功能
