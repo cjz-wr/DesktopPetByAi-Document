@@ -5,7 +5,17 @@ export default defineConfig({
   base: '/DesktopPetByAi-Document/',
   title: "DesktopPetByAi",
   description: "DesktopPetByAi Documentation",
+  lastUpdated: true,
   themeConfig: {
+    editLink: {
+      pattern: 'https://github.com/cjz-wr/DesktopPetByAi-Document/edit/main/docs/:path',
+      // 可选：自定义链接显示的文本，默认是 "Edit this page"
+      text: '在 GitHub 上编辑此页'
+    },
+
+    
+    
+    lastUpdatedText: '最后更新时间',
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
