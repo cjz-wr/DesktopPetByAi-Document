@@ -26,7 +26,7 @@ export default defineConfig({
       {
         text: 'DesktopPetByAi使用&开发',
         items: [
-          { text: 'DesktopPetByAi', link: '/comeFrom' },
+          { text: '关于DesktopPetByAi', link: '/comeFrom' },
           { text: 'DesktopPetByAi的配置文件', link: '/other' },
           { text: 'DesktopPetByAi使用', link: '/start' },
           { text:'探索更多功能',link:'/more'},
